@@ -11,13 +11,11 @@ import Foundation
 class Tweet{
     let text: String
     let id: String
-    let userName: String
-    let profileImage: String
+    var user: User?
     
-    init(text: String, id: String, userName: String, profileImage: String){
+    init(text: String, id: String, user: User?){
         self.text = text
         self.id = id
-        self.userName = userName
-        self.profileImage = profileImage
+        self.user = user
     }
 }

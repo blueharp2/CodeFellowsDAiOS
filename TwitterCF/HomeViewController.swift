@@ -21,28 +21,78 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
-        self.getTweets()
+        
+        self.getAccount()
+        //self.getTweets()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    func getAccount() {
+        LoginService.loginTwitter({ (error, account) -> () in
+            if let error = error{
+                print(error)
+                return
+            }
+            
+            if let account = account {
+                TwitterService.sharedService.account = account
+                self.authenticateUser()
+            }
+        })
+    }
+    
+    func authenticateUser(){
+        TwitterService.getAuthUser { (error, user) -> () in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            if let user = user {
+                TwitterService.sharedService.user = user
+                self.getTweets()
+            }
+        }
+    }
+
+
+    func getTweets() {
+        TwitterService.tweetsFromHomeTimeline {(error, tweets) -> () in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            if let tweets = tweets{
+                NSOperationQueue.mainQueue().addOperationWithBlock ({ () -> Void in
+                    self.tweets = tweets
+                    self.tableView.reloadData()
+                })
+            }
+        }
+    }
+    
 
     func setupTableView(){
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
 
-    func getTweets(){
-        if let tweetJSONFlieUrl = NSBundle.mainBundle().URLForResource("tweet", withExtension: "json") {
-            if let tweetJSONData = NSData(contentsOfURL: tweetJSONFlieUrl){
-                if let tweets = TweetJSONParser.tweetFromJSONData(tweetJSONData){
-                self.tweets = tweets
-                self.tableView.reloadData()
-                }
-            }
-        }
-    }
+//    func getTweets(){
+//        if let tweetJSONFlieUrl = NSBundle.mainBundle().URLForResource("tweet", withExtension: "json") {
+//            if let tweetJSONData = NSData(contentsOfURL: tweetJSONFlieUrl){
+//                if let tweets = TweetJSONParser.TweetFromJSONData(tweetJSONData){
+//                self.tweets = tweets
+//                self.tableView.reloadData()
+//                }
+//            }
+//        }
+//    }
+    
+    
 //Mark: UITableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tweets.count

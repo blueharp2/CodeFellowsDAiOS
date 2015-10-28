@@ -9,29 +9,36 @@
 import Foundation
 
 class TweetJSONParser {
-    class func tweetFromJSONData(json: NSData) -> [Tweet]?{
+    
+    class func TweetFromJSONData(jsonData: NSData) -> [Tweet]? {
         do{
-            
-            var tweets = [Tweet]()
-            
-            if let rootObject = try NSJSONSerialization.JSONObjectWithData(json, options: NSJSONReadingOptions.MutableContainers) as? [[String : AnyObject]]{
-                
+            if let rootObject = try NSJSONSerialization.JSONObjectWithData(jsonData, options: []) as? [[String: AnyObject]] {
+                var tweets = [Tweet] ()
                 for tweetObject in rootObject {
-                    if let userDictionary = tweetObject["user"] as? [String : AnyObject],
-                        let text = tweetObject["text"] as? String,
-                        let id = tweetObject["id_str"] as? String,
-                        let userName = userDictionary["name"] as? String,
-                        let profileImage = userDictionary["profile_image_url"] as? String {
-                            
-                            let tweet = Tweet (text: text, id: id, userName: userName, profileImage: profileImage)
-                            tweets.append(tweet)
+                    if let text = tweetObject ["text"] as? String, id = tweetObject["id_str"] as? String,
+                        user = tweetObject ["user"] as? [String : AnyObject],
+                        userName = user["name"] as? String, profileImage = user["profile_image_url"] as? String {
+                        
+                        
+                        let tweet = Tweet(text : text, id : id, user : User(userName: userName, profileImage: profileImage))
+                        tweets.append(tweet)
                     }
                 }
+                return tweets
             }
-            return tweets
         } catch _ {
             return nil
+            
         }
+        return nil
+    }
+    
+    class func userFromData(user : [String : AnyObject]) -> User? {
+        if let userName = user["name"] as? String,
+            profileImage = user["profile_image_url"] as? String {
+                return User(userName: userName, profileImage: profileImage)
+        }
+        return nil
     }
 }
 
