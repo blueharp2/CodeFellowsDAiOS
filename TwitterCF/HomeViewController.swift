@@ -33,6 +33,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "TweetDetail" {
+            if let indexPath = self.tableView.indexPathForSelectedRow{
+                let tweet = self.tweets[indexPath.row]
+                let tweetDetailViewContorller = segue.destinationViewController as! TweetDetailViewController
+                tweetDetailViewContorller.tweet = tweet
+            }
+        }
+    }
+    
     func getAccount() {
         LoginService.loginTwitter({ (error, account) -> () in
             if let error = error{
@@ -82,18 +92,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func setupTableView(){
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.estimatedRowHeight = 10
+        self.tableView.rowHeight = UITableViewAutomaticDimension
     }
-
-//    func getTweets(){
-//        if let tweetJSONFlieUrl = NSBundle.mainBundle().URLForResource("tweet", withExtension: "json") {
-//            if let tweetJSONData = NSData(contentsOfURL: tweetJSONFlieUrl){
-//                if let tweets = TweetJSONParser.TweetFromJSONData(tweetJSONData){
-//                self.tweets = tweets
-//                self.tableView.reloadData()
-//                }
-//            }
-//        }
-//    }
     
     
 //Mark: UITableView

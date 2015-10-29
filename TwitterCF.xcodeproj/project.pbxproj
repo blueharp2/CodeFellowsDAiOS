@@ -20,6 +20,7 @@
 		90D923A71BE1236700932BE4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D923A61BE1236700932BE4 /* User.swift */; };
 		90D923A91BE127DB00932BE4 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D923A81BE127DB00932BE4 /* Login.swift */; };
 		90D923AB1BE12EEB00932BE4 /* TwitterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D923AA1BE12EEB00932BE4 /* TwitterService.swift */; };
+		90E04EF01BE27DED00F5FDC3 /* TweetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E04EEF1BE27DED00F5FDC3 /* TweetDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		90D923A61BE1236700932BE4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		90D923A81BE127DB00932BE4 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		90D923AA1BE12EEB00932BE4 /* TwitterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterService.swift; sourceTree = "<group>"; };
+		90E04EEF1BE27DED00F5FDC3 /* TweetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TweetDetailViewController.swift; path = ../TweetDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				90D923A81BE127DB00932BE4 /* Login.swift */,
 				90D923AA1BE12EEB00932BE4 /* TwitterService.swift */,
 				90D41F471BDEBF2A004D1658 /* HomeViewController.swift */,
+				90E04EEF1BE27DED00F5FDC3 /* TweetDetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				90D41F741BDEC226004D1658 /* Tweet.swift in Sources */,
 				90D41F481BDEBF2A004D1658 /* HomeViewController.swift in Sources */,
 				90D923A91BE127DB00932BE4 /* Login.swift in Sources */,
+				90E04EF01BE27DED00F5FDC3 /* TweetDetailViewController.swift in Sources */,
 				90D923A71BE1236700932BE4 /* User.swift in Sources */,
 				90D41F461BDEBF2A004D1658 /* AppDelegate.swift in Sources */,
 			);
