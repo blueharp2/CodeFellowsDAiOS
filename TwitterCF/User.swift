@@ -15,7 +15,7 @@ class User {
     let profileImage: String
     
     //let rtUser: String?
-    //var image: UIImage?
+    var image: UIImage?
     
     init(userName: String, profileImage: String){
         self.userName = userName

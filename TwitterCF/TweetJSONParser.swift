@@ -12,44 +12,50 @@ class TweetJSONParser {
     class func TweetFromJSONData(jsonData: NSData) -> [Tweet]? {
         do{
             if let rootObject = try NSJSONSerialization.JSONObjectWithData(jsonData, options: []) as? [[String: AnyObject]] {
-               
+                
                 var tweets = [Tweet] ()
                 
                 for tweetObject in rootObject {
                     
                     if let text = tweetObject ["text"] as? String, id = tweetObject["id_str"] as? String,
                         user = tweetObject ["user"] as? [String : AnyObject] {
+                            var retweetStatus:Tweet?
                             
                             let isRetweet = self.isRetweet(tweetObject)
                             if isRetweet.0 == true {
-                                if let retweetObject = isRetweet.1{
-                                  if let retweetText = retweetObject["text"] as? String, retweetUser = retweetObject["user"] as? [String: AnyObject]{
-                                        if let retweetUser = userFromData(retweetUser), user = userFromData(user) {
-                                            let tweet = Tweet(text: text, id: id, user: user, rtUser: retweetUser, rtText: retweetText, isRetweet: true)
-                                            tweets.append(tweet)
-                                        }
+                                if let retweetObject = isRetweet.1 {
+                                    if let text = retweetObject["text"] as? String,
+                                        id = retweetObject["id_str"] as? String,
+                                        user = retweetObject["user"] as? [String: AnyObject],
+                                        username = user["name"] as? String,
+                                        profileImage = user["profile_image_url"] as? String {
+                                            retweetStatus = Tweet(text: text, id: id)
+                                            retweetStatus!.user = User(userName: username, profileImage: profileImage)
                                     }
                                 }
-                            } else {
-                            
-                                let tweet = Tweet(text : text, id : id)
-                                if let name = user["name"] as? String, profileImage = user["profile_image_url"] as? String {
-                                    tweet.user = User(userName : name , profileImage: profileImage)
-                                }
-                                tweets.append(tweet)
                             }
-                        }
+                            
+                            let tweet = Tweet(text : text, id : id)
+                            if let name = user["name"] as? String, profileImage = user["profile_image_url"] as? String {
+                                tweet.user = User(userName : name , profileImage: profileImage)
+                                tweet.retweetStatus = retweetStatus                                }
+                            tweets.append(tweet)  
                     }
-                    return tweets
                 }
-            } catch _ {
-                return nil
+                return tweets
             }
+        } catch _ {
+            return nil
+        }
         return nil
     }
     
     class func isRetweet(tweetObject: [String : AnyObject]) -> (Bool, [String : AnyObject]?){
         if let retweetObject = tweetObject["retweeted_status"] as? [String : AnyObject]{
+            
+            if let user = retweetObject["user"] as? [String: AnyObject], name = user["name"] as? String {
+                print("original tweeter: \(name)")
+            }
             if let _ = retweetObject ["text"] as? String, _ = retweetObject["user"] as? [String : AnyObject]{
                 return (true, retweetObject)
             }
@@ -75,7 +81,7 @@ class TweetJSONParser {
         return nil
     }
 }
-//    
+//
 //    class func userFromData(user : [String : AnyObject]) -> Bool {
 //        if let quoteStatus = tweetObject["is_quote_status"] as? Bool where quoteStatus == true {
 //            if let quoteData = tweetObject[ "quoteStatus"] as? [String: AnyObject] {
@@ -98,8 +104,8 @@ class TweetJSONParser {
 
 
 //
-//    
-//    
+//
+//
 //    class func TweetFromJSONData(jsonData: NSData) -> [Tweet]? {
 //        do{
 //            if let rootObject = try NSJSONSerialization.JSONObjectWithData(jsonData, options: []) as? [[String: AnyObject]] {
@@ -108,8 +114,8 @@ class TweetJSONParser {
 //                    if let text = tweetObject ["text"] as? String, id = tweetObject["id_str"] as? String,
 //                        user = tweetObject ["user"] as? [String : AnyObject]
 //                        userName = user["name"] as? String, profileImage = user["profile_image_url"] as? String {
-//                        
-//                        
+//
+//
 //                        let tweet = Tweet(text : text, id : id, user : User(userName: userName, profileImage: profileImage))
 //                        tweets.append(tweet)
 //                    }
@@ -118,11 +124,11 @@ class TweetJSONParser {
 //            }
 //        } catch _ {
 //            return nil
-//            
+//
 //        }
 //        return nil
 //    }
-//    
+//
 //    class func userFromData(user : [String : AnyObject]) -> User? {
 //        if let userName = user["name"] as? String,
 //            profileImage = user["profile_image_url"] as? String {

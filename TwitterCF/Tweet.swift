@@ -15,6 +15,7 @@ class Tweet{
     
     let rtText: String?
     let rtUser: User?
+    var retweetStatus:Tweet?
     
     var isRetweet: Bool
     
@@ -25,6 +26,7 @@ class Tweet{
         self.rtText = rtText
         self.rtUser = rtUser
         self.isRetweet = isRetweet
+
         
     }
 }

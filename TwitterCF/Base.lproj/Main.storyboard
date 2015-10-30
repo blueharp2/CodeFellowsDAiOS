@@ -73,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117" y="349"/>
+            <point key="canvasLocation" x="1021" y="357"/>
         </scene>
         <!--Tweet Detail View Controller-->
         <scene sceneID="7BI-fe-0KQ">
@@ -94,17 +94,27 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCj-Pq-V3u">
+                                <rect key="frame" x="28" y="318" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ZCj-Pq-V3u" firstAttribute="top" secondItem="8Sl-lm-SBz" secondAttribute="bottom" constant="8" id="1sD-eK-fu2"/>
                             <constraint firstItem="8Sl-lm-SBz" firstAttribute="centerY" secondItem="lFZ-dG-LjG" secondAttribute="centerY" id="Qcx-UO-kFc"/>
                             <constraint firstItem="8Sl-lm-SBz" firstAttribute="leading" secondItem="lFZ-dG-LjG" secondAttribute="leadingMargin" constant="8" id="ROD-XN-8lP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8Sl-lm-SBz" secondAttribute="trailing" constant="8" id="iev-dS-fgg"/>
+                            <constraint firstItem="ZCj-Pq-V3u" firstAttribute="leading" secondItem="lFZ-dG-LjG" secondAttribute="leadingMargin" constant="8" id="vy6-B6-aTH"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="tweetLabel" destination="8Sl-lm-SBz" id="qmP-pi-x0x"/>
+                        <outlet property="userNameLabel" destination="ZCj-Pq-V3u" id="sPM-LN-RHC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kYQ-v0-4fa" userLabel="First Responder" sceneMemberID="firstResponder"/>
