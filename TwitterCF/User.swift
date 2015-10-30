@@ -7,10 +7,15 @@
 //
 
 import Foundation
+import UIKit
+
 
 class User {
     let userName: String
     let profileImage: String
+    
+    //let rtUser: String?
+    //var image: UIImage?
     
     init(userName: String, profileImage: String){
         self.userName = userName

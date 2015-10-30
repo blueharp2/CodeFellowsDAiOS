@@ -12,20 +12,24 @@ class TweetDetailViewController: UIViewController {
 
     // Outlets
     @IBOutlet weak var tweetLabel: UILabel!
+    
+    
 
     // Class Properties
-    var tweet : Tweet?
+    var tweet : Tweet!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.setupDetailView()
+        self.setupAppeaance()
+        self.setupTweetDetailViewController()
+        
+        
         
         if let tweet = self.tweet{
             print(tweet.text)
             self.tweetLabel.text = tweet.text
         }
-        
-       
         
         
         // Do any additional setup after loading the view.
@@ -34,6 +38,25 @@ class TweetDetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func setupAppeaance() {
+        if self.tweet.isRetweet {
+            if let rtUser = self.tweet.user {
+                self.navigationItem.title = "\(rtUser)"
+                return
+            }
+        }
+        if let name = tweet.user?.userName {
+            self.navigationItem.title = name
+        }
+    }
+    
+    func setupTweetDetailViewController() {
+        self.tweetLabel.text = self.tweet.isRetweet ?
+        self.tweet.rtText : self.tweet.text
+        }
     }
     
 //    
@@ -53,4 +76,4 @@ class TweetDetailViewController: UIViewController {
     }
     */
 
-}
+
