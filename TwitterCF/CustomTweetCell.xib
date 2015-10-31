@@ -8,23 +8,24 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="0SP-wG-R79">
-            <rect key="frame" x="0.0" y="0.0" width="447" height="70"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="87" id="0SP-wG-R79" customClass="CustomTweetCell" customModule="TwitterCF" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="462" height="87"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0SP-wG-R79" id="1hh-eQ-a6X">
-                <rect key="frame" x="0.0" y="0.0" width="447" height="69"/>
+                <rect key="frame" x="0.0" y="0.0" width="462" height="86"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDQ-0N-hfe">
-                        <rect key="frame" x="8" y="0.0" width="75" height="66"/>
+                        <rect key="frame" x="8" y="8" width="75" height="75"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="75" id="P7m-m6-K2I"/>
+                            <constraint firstAttribute="height" constant="75" id="xWc-Ae-9jK"/>
                         </constraints>
                         <state key="normal" title="Button"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZi-Tg-uIF">
-                        <rect key="frame" x="91" y="14" width="348" height="21"/>
+                        <rect key="frame" x="103" y="8" width="336" height="21"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -33,16 +34,19 @@
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="EDQ-0N-hfe" secondAttribute="bottom" constant="-5" id="K1p-vB-VEl"/>
-                    <constraint firstItem="YZi-Tg-uIF" firstAttribute="leading" secondItem="EDQ-0N-hfe" secondAttribute="trailing" constant="8" id="Tok-QI-66L"/>
-                    <constraint firstItem="YZi-Tg-uIF" firstAttribute="trailing" secondItem="1hh-eQ-a6X" secondAttribute="trailingMargin" id="Ty6-TF-Rd4"/>
-                    <constraint firstItem="EDQ-0N-hfe" firstAttribute="leading" secondItem="1hh-eQ-a6X" secondAttribute="leadingMargin" id="ZJI-9p-Csd"/>
-                    <constraint firstItem="YZi-Tg-uIF" firstAttribute="top" secondItem="1hh-eQ-a6X" secondAttribute="topMargin" constant="6" id="bRs-Mq-9yQ"/>
-                    <constraint firstItem="EDQ-0N-hfe" firstAttribute="top" secondItem="1hh-eQ-a6X" secondAttribute="top" id="zZf-NX-tXh"/>
+                    <constraint firstItem="EDQ-0N-hfe" firstAttribute="leading" secondItem="1hh-eQ-a6X" secondAttribute="leadingMargin" id="3Tr-0v-NCb"/>
+                    <constraint firstItem="YZi-Tg-uIF" firstAttribute="top" secondItem="EDQ-0N-hfe" secondAttribute="top" id="9cW-v3-uus"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="YZi-Tg-uIF" secondAttribute="trailing" constant="15" id="bhF-3h-EZv"/>
+                    <constraint firstItem="YZi-Tg-uIF" firstAttribute="leading" secondItem="EDQ-0N-hfe" secondAttribute="trailing" constant="20" id="na8-hz-SD2"/>
+                    <constraint firstItem="EDQ-0N-hfe" firstAttribute="top" secondItem="1hh-eQ-a6X" secondAttribute="topMargin" id="xcf-aL-sT6"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
-            <point key="canvasLocation" x="478.5" y="199"/>
+            <connections>
+                <outlet property="imgView" destination="EDQ-0N-hfe" id="hnT-et-qT5"/>
+                <outlet property="tweetTextLabel" destination="YZi-Tg-uIF" id="5BZ-xT-VPe"/>
+            </connections>
+            <point key="canvasLocation" x="521" y="278.5"/>
         </tableViewCell>
     </objects>
 </document>
