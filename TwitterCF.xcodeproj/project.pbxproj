@@ -104,10 +104,22 @@
 			name = CustomTweetCell;
 			sourceTree = "<group>";
 		};
+		9010B5B01BE50FE40039C9B4 /* Old files */ = {
+			isa = PBXGroup;
+			children = (
+				90C3B9451BDFDD0E0024CEEF /* optionalBindingDemo.playground */,
+				90C73F501BE3FC3200FA1167 /* scratchpad.swift */,
+				90D41F771BDEDB3F004D1658 /* tweet.json */,
+			);
+			name = "Old files";
+			path = TwitterCF;
+			sourceTree = "<group>";
+		};
 		90D41F391BDEBF29004D1658 = {
 			isa = PBXGroup;
 			children = (
 				90D41F441BDEBF2A004D1658 /* TwitterCF */,
+				9010B5B01BE50FE40039C9B4 /* Old files */,
 				90D41F591BDEBF2A004D1658 /* TwitterCFTests */,
 				90D41F641BDEBF2A004D1658 /* TwitterCFUITests */,
 				90D41F431BDEBF2A004D1658 /* Products */,
@@ -134,7 +146,6 @@
 				90D41F4C1BDEBF2A004D1658 /* Assets.xcassets */,
 				90D41F4E1BDEBF2A004D1658 /* LaunchScreen.storyboard */,
 				90D41F511BDEBF2A004D1658 /* Info.plist */,
-				90C3B9451BDFDD0E0024CEEF /* optionalBindingDemo.playground */,
 			);
 			path = TwitterCF;
 			sourceTree = "<group>";
@@ -161,10 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				90D41F751BDEC2F7004D1658 /* TweetJSONParser.swift */,
-				90C73F501BE3FC3200FA1167 /* scratchpad.swift */,
 				90D41F731BDEC226004D1658 /* Tweet.swift */,
 				90D923A61BE1236700932BE4 /* User.swift */,
-				90D41F771BDEDB3F004D1658 /* tweet.json */,
 			);
 			name = Model;
 			sourceTree = "<group>";

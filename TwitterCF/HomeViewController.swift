@@ -24,23 +24,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
-        
         self.getAccount()
-        //self.getTweets()
+      
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "TweetDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow{
-                let tweet = self.tweets[indexPath.row]
-                let tweetDetailViewContorller = segue.destinationViewController as! TweetDetailViewController
-                tweetDetailViewContorller.tweet = tweet
-            }
-        }
+    func setupTableView(){
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        self.tableView.estimatedRowHeight = 10
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+        let customTweetCellXib = UINib(nibName: "CustomTweetCell", bundle: nil)
+        self.tableView.registerNib(customTweetCellXib, forCellReuseIdentifier: CustomTweetCell.identifier())
     }
     
     func getAccount() {
@@ -71,7 +67,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
 
-
     func getTweets() {
         TwitterService.tweetsFromHomeTimeline {(error, tweets) -> () in
             if let error = error {
@@ -87,29 +82,32 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
-    
-
-    func setupTableView(){
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.estimatedRowHeight = 10
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
-    
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == TweetDetailViewController.identifier(){
+            if let indexPath = self.tableView.indexPathForSelectedRow{
+                let tweet = self.tweets[indexPath.row]
+                let tweetDetailViewContorller = segue.destinationViewController as! TweetDetailViewController
+                tweetDetailViewContorller.tweet = tweet
+            }
+        }
+    }
     
 //Mark: UITableView
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tweets.count
+        return tweets.count
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(CustomTweetCell.identifier(), forIndexPath: indexPath) as! CustomTweetCell
         
-        let tweet = self.tweets[indexPath.row]
-        cell.textLabel?.text = tweet.text
-        cell.detailTextLabel?.text = "Tweet id is: \(tweet.id)"
+       cell.tweet = tweets[indexPath.row]
         
         return cell
-        
     }
 }
 

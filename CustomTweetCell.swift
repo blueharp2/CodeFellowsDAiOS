@@ -21,7 +21,7 @@ class CustomTweetCell: UITableViewCell {
                 self.tweetTextLabel.text = text
                 
                 if let image = user.image{
-                    self.imgView = 
+                    self.imgView.image = image
                 } else {
                     if let url = NSURL(string: user.profileImage){
                         let downloadQ = dispatch_queue_create("downloadQ", nil)
@@ -39,3 +39,14 @@ class CustomTweetCell: UITableViewCell {
                     }
                 }
             }
+    class func identifier() -> String{
+        return "CustomTweetCell"
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+}

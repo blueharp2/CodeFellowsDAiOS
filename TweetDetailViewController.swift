@@ -18,6 +18,10 @@ class TweetDetailViewController: UIViewController {
     // Class Properties
     var tweet : Tweet!
     
+    class func identifier() -> String {
+        return "TweetDetailViewController"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupAppeaance()

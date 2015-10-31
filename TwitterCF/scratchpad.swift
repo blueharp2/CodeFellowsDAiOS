@@ -17,3 +17,35 @@ import Foundation
 //                                            tweets.append(tweet)
 //                                        }
 //                                    }
+//
+
+
+
+
+
+//Original segue and TableView Protocols before we used a Xib for the cell
+//override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//    if segue.identifier == "TweetDetail" {
+//        if let indexPath = self.tableView.indexPathForSelectedRow{
+//            let tweet = self.tweets[indexPath.row]
+//            let tweetDetailViewContorller = segue.destinationViewController as! TweetDetailViewController
+//            tweetDetailViewContorller.tweet = tweet
+//        }
+//    }
+//}
+//
+////Mark: UITableView
+//func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//    return self.tweets.count
+//}
+//func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//    let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath)
+//    
+//    let tweet = self.tweets[indexPath.row]
+//    cell.textLabel?.text = tweet.text
+//    cell.detailTextLabel?.text = "Tweet id is: \(tweet.id)"
+//    
+//    return cell
+//    
+//}
+//}
