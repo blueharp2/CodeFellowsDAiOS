@@ -55,4 +55,4 @@ class CustomTweetCell: UITableViewCell {
 //
 //    func ImageView(){
 //    self.imgView.setBackgroundImage(image: UIImage, forState: UIControlState.Normal)
-//    }
+}

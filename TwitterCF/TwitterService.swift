@@ -15,6 +15,7 @@ class TwitterService {
     
     var account: ACAccount?
     var user : User?
+    var userTimeline: UserTimeline?
     
     class func tweetsFromHomeTimeline(completion: (String?, [Tweet]?) -> () ) {
         
@@ -71,4 +72,30 @@ class TwitterService {
             }
         }
     }
+    class func tweetsFromUserTimeline(completion: (String?, [UserTimeline]?) -> () ) {
+        
+        let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: NSURL(string: "https://https://api.twitter.com/1.1/users/lookup.json"), parameters: nil)
+        
+        if let account = self.sharedService.account {
+            request.account = account
+            
+            request.performRequestWithHandler { (data, response, error) -> Void in
+                if let error = error {
+                    print(error.description)
+                    completion("ERROR: SLRequest type GET for 1.1/users/lookup.json could not be completed", nil); return
+                }
+                print(response.description)
+                
+                switch response.statusCode {
+                case 200...299:
+                    let tweets = TweetJSONParser.TweetFromJSONData(data)
+                    completion(nil, userTimeline)
+                default:
+                    completion("ERROR: SLRequest type GET for 1.1/users/lookup.json returned status code \(response.statusCode) [unknown error].", nil)
+                }
+            }
+        }
+    }
+
 }
+
