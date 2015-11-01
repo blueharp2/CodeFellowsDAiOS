@@ -26,6 +26,8 @@ class TweetDetailViewController: UIViewController {
         super.viewDidLoad()
         self.setupAppeaance()
         self.setupTweetDetailViewController()
+        
+        //self.imgView.setBackgroundImage(image: UIImage?, forState: UIControlState)
         // Do any additional setup after loading the view.
     }
     

@@ -49,3 +49,20 @@ import Foundation
 //    
 //}
 //}
+
+
+
+//
+//let playButton  = UIButton(type: .Custom)
+//if let image = UIImage(named: "play.png") {
+//    playButton.setImage(image, forState: .Normal)
+//}
+
+
+//func imageForState(_state: UIControlState) ->UIImage {
+//    if let image{
+//        return self.image
+//    }
+//    
+//}
+

@@ -15,13 +15,14 @@ class CustomTweetCell: UITableViewCell {
     
     @IBOutlet weak var tweetTextLabel: UILabel!
     
+    
     var tweet: Tweet? {
         didSet {
             if let tweet = self.tweet, user = tweet.user, text = self.tweet?.text{
                 self.tweetTextLabel.text = text
                 
                 if let image = user.image{
-                    self.imgView.image = image
+                    self.imgView = image
                 } else {
                     if let url = NSURL(string: user.profileImage){
                         let downloadQ = dispatch_queue_create("downloadQ", nil)
@@ -49,4 +50,9 @@ class CustomTweetCell: UITableViewCell {
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-}
+//    self.imgView.setBackgroundImage(image: UIImage?, forState: UIControlState.Normal){
+//        self.image = image
+//
+//    func ImageView(){
+//    self.imgView.setBackgroundImage(image: UIImage, forState: UIControlState.Normal)
+//    }

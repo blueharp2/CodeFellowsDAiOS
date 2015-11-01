@@ -83,11 +83,31 @@
                     <connections>
                         <outlet property="tweetLabel" destination="8Sl-lm-SBz" id="qmP-pi-x0x"/>
                         <outlet property="userNameLabel" destination="ZCj-Pq-V3u" id="sPM-LN-RHC"/>
+                        <segue destination="I6Q-k3-hgH" kind="show" id="OWf-oe-m9P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kYQ-v0-4fa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1709" y="357"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7LV-tR-dU3">
+            <objects>
+                <viewController id="I6Q-k3-hgH" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S0d-ZL-ATO"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bnd-Lk-aQw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OaX-Xe-DcN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZiD-Az-aCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2375" y="357"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c1e-Gy-bJc">
