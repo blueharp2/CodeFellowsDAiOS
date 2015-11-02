@@ -13,7 +13,7 @@ class UserTimeline {
     let location: String
     let profileImage: String
     let profileBackgroundImage: String
-    let status = String
+    let status: String
     
     init(screenName: String, location: String, profileImage: String, profileBackgroundImage: String, status: String){
         self.screenName = screenName

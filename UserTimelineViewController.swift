@@ -8,28 +8,96 @@
 
 import UIKit
 
-class UserTimelineViewController: UIViewController {
+class UserTimelineViewController:  UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    var userTimelines = [UserTimeline] ()
+    
+    class func identifier() -> String {
+        return"UserTimeLine"
+    
+    
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupTableView()
+     
     }
-    */
+    
+    func setupTableView(){
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        self.tableView.estimatedRowHeight = 10
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+        let customTweetCellXib = UINib(nibName: "CustomTweetCell", bundle: nil)
+        self.tableView.registerNib(customTweetCellXib, forCellReuseIdentifier: CustomTweetCell.identifier())
+    
+    
+        func getUserTimeLine() {
+            TwitterService.tweetsFromUserTimeline {(error, tweets) -> () in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                
+                if let userTimelines = userTimelines{
+                    NSOperationQueue.mainQueue().addOperationWithBlock ({ () -> Void in
+                        self.userTimelines = userTimelines
+                        self.tableView.reloadData()
+                    })
+                }
+            }
+        }
+        
+        
+        //Mark: UITableView
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userTimelines.count
+    }
+    optional func numberOfSectionsInTableView(tableView: UITableView) -> Int{
+            return 2
+        }
+        
+    optional func tableView(tableView: UITableView,titleForHeaderInSection section: Int) -> String?{
+            
+        }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(CustomTweetCell.identifier(), forIndexPath: indexPath) as! CustomTweetCell
+        
+        cell.tweet = UserTimeline.status[indexPath.row]
+        
+        return cell
+    }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+    }
+
 
 }
+}
+
+
+    
+//    //Mark: UITableView
+//    
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return tweets.count
+//    }
+//    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCellWithIdentifier(CustomTweetCell.identifier(), forIndexPath: indexPath) as! CustomTweetCell
+//        
+//        cell.tweet = tweets[indexPath.row]
+//        
+//        return cell
+//    }
+//}
+

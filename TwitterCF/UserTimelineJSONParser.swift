@@ -13,30 +13,32 @@ class UserTimelineJSONParser {
         do{
             if let rootObject = try NSJSONSerialization.JSONObjectWithData(jsonData, options: []) as? [[String: AnyObject]] {
                 
-                var userTimeline = [UserTimeline] ()
+                var userTimelines = [UserTimeline] ()
                 
                 for userObject in rootObject {
                     
                     if let screenName = userObject ["screen_name"] as? String,
                             location = userObject["location"] as? String,
                         profileImage = userObject["profile_image_url"] as? String,
-                        profileBackgroundImage = userObject["profile_background_image_url"] as? String?
-                    
+                        profileBackgroundImage = userObject["profile_background_image_url"] as? String,
+                
                             status = userObject ["status"] as? [String : AnyObject] {
-                                    if let text = status["text"] as? String
+                                if let text = status["text"] as? String{
+                                    userTimeline.text = text
+                                }
                                 }
                             }
                             
                 let userTimeline = UserTimeline(screenName : screenName, location : location, profileImage: profileImage, profileBackgroundImage : profileBackgroundImage, status : status)
                     userTimeline.append(userTimeline)
                     }
-                return userTimeline
-                }
+                return userTimelines
             } catch _ {
                 return nil
             }
         return nil
     }
+}
 
 //
 //    class TweetJSONParser {
