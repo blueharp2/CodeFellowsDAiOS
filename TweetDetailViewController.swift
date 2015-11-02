@@ -15,6 +15,10 @@ class TweetDetailViewController: UIViewController {
     
     @IBOutlet weak var userNameLabel: UILabel!
     
+    @IBOutlet weak var imageView: UIImageView!
+    
+    
+    
     // Class Properties
     var tweet : Tweet!
     
@@ -42,11 +46,12 @@ class TweetDetailViewController: UIViewController {
                 self.userNameLabel.text = retweetStatus.user?.userName
                 self.tweetLabel.text = retweetStatus.text
                 self.navigationItem.title = retweetStatus.user?.userName
+                self.imageView.image = self.tweet.user?.image
             } else {
                 self.tweetLabel.text = tweet.text
                 self.userNameLabel.text = tweet.user?.userName
                 self.navigationItem.title = tweet.user?.userName
-                
+                self.imageView.image = self.tweet.user?.image
             }
             
         }
