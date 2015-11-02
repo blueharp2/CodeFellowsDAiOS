@@ -23,16 +23,15 @@ class UserTimelineJSONParser {
                         profileBackgroundImage = userObject["profile_background_image_url"] as? String,
                 
                             status = userObject ["status"] as? [String : AnyObject] {
-                                if let text = status["text"] as? String{
-                                    userTimeline.text = text
-                                }
+                                text = status["text"] as? String
                                 }
                             }
                             
-                let userTimeline = UserTimeline(screenName : screenName, location : location, profileImage: profileImage, profileBackgroundImage : profileBackgroundImage, status : status)
-                    userTimeline.append(userTimeline)
+               let userTimeline = UserTimeline(screenName: screenName, location: location, profileImage: profileImage, profileBackgroundImage: profileBackgroundImage, status: status, text: text)
+                    userTimelines.append(userTimeline)
                     }
                 return userTimelines
+            
             } catch _ {
                 return nil
             }

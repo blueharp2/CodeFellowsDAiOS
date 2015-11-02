@@ -104,7 +104,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CustomTweetCell.identifier(), forIndexPath: indexPath) as! CustomTweetCell
-        
+      
+        cell.imgView.setBackgroundImage(UIImage?, forState: UIControlState.Normal)
        cell.tweet = tweets[indexPath.row]
         
         return cell

@@ -14,13 +14,15 @@ class UserTimeline {
     let profileImage: String
     let profileBackgroundImage: String
     let status: String
+    let text: String
     
-    init(screenName: String, location: String, profileImage: String, profileBackgroundImage: String, status: String){
+    init(screenName: String, location: String, profileImage: String, profileBackgroundImage: String, status: String, text: String){
         self.screenName = screenName
         self.location = location
         self.profileImage = profileImage
         self.profileBackgroundImage = profileBackgroundImage
         self.status = status
+        self.text = text
     }
     
     

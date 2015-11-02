@@ -8,32 +8,32 @@
 
 import UIKit
 
-class UserTimelineViewController:  UIViewController, UITableViewDelegate, UITableViewDataSource {
+class UserTimelineViewController:  UIViewController, UITableViewDelegate//, UITableViewDataSource
 
+{
+
+    @IBOutlet weak var userTimelineTableView: UITableView!
     
     var userTimelines = [UserTimeline] ()
     
     class func identifier() -> String {
         return"UserTimeLine"
-    
-    
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
-     
     }
     
     func setupTableView(){
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        self.userTimelineTableView.delegate = self
+        //self.userTimelineTableView.dataSource = self
         
-        self.tableView.estimatedRowHeight = 10
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.userTimelineTableView.estimatedRowHeight = 10
+        self.userTimelineTableView.rowHeight = UITableViewAutomaticDimension
         
         let customTweetCellXib = UINib(nibName: "CustomTweetCell", bundle: nil)
-        self.tableView.registerNib(customTweetCellXib, forCellReuseIdentifier: CustomTweetCell.identifier())
+        self.userTimelineTableView.registerNib(customTweetCellXib, forCellReuseIdentifier: CustomTweetCell.identifier())
     
     
         func getUserTimeLine() {
@@ -46,7 +46,7 @@ class UserTimelineViewController:  UIViewController, UITableViewDelegate, UITabl
                 if let userTimelines = userTimelines{
                     NSOperationQueue.mainQueue().addOperationWithBlock ({ () -> Void in
                         self.userTimelines = userTimelines
-                        self.tableView.reloadData()
+                        self.userTimelineTableView.reloadData()
                     })
                 }
             }
@@ -55,26 +55,24 @@ class UserTimelineViewController:  UIViewController, UITableViewDelegate, UITabl
         
         //Mark: UITableView
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func userTimelineTableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userTimelines.count
     }
      func numberOfSectionsInTableView(tableView: UITableView) -> Int{
             return 2
         }
-        
-     func tableView(tableView: UITableView,titleForHeaderInSection section: Int) -> String?{
-            return UserTimeline.screenName
-        }
+     
+//     func userTimelineTableViewHeader(tableView: UITableView,titleForHeaderInSection section: Int) -> UIView?{
+//        }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func userTimelineTableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CustomTweetCell.identifier(), forIndexPath: indexPath) as! CustomTweetCell
         
-        cell.tweet = UserTimeline.status[indexPath.row]
+        cell.tweet = userTimelines[indexPath.row]
         
         return cell
+        }
     }
-
-}
 }
 
 

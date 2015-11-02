@@ -123,6 +123,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="userTimelineTableView" destination="Akq-wF-9rb" id="mA6-GU-t79"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZiD-Az-aCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
