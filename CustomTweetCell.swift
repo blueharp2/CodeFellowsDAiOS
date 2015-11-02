@@ -22,7 +22,10 @@ class CustomTweetCell: UITableViewCell {
                 self.tweetTextLabel.text = text
                 
                 if let image = user.image{
-                    self.imgView = image
+                    
+//                    self.imgView = image
+                    self.imgView.setBackgroundImage(image, forState: UIControlState.Normal)
+                    
                 } else {
                     if let url = NSURL(string: user.profileImage){
                         let downloadQ = dispatch_queue_create("downloadQ", nil)
@@ -31,8 +34,13 @@ class CustomTweetCell: UITableViewCell {
                                 
                                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                                     let image = UIImage (data: imageData)
-                                    self.imgView.image = image
+                                    
+//                                    self.imgView.image = image
+                                    
+                                    self.imgView.setBackgroundImage(image, forState: UIControlState.Normal)
+                                    
                                     user.image = image
+                                    
                                     })
                                 })
                             }

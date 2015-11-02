@@ -22,10 +22,9 @@
                             <constraint firstAttribute="width" constant="75" id="P7m-m6-K2I"/>
                             <constraint firstAttribute="height" constant="75" id="xWc-Ae-9jK"/>
                         </constraints>
-                        <state key="normal" title="Button"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZi-Tg-uIF">
-                        <rect key="frame" x="103" y="8" width="336" height="21"/>
+                        <rect key="frame" x="103" y="32" width="336" height="21"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -35,8 +34,9 @@
                 <animations/>
                 <constraints>
                     <constraint firstItem="EDQ-0N-hfe" firstAttribute="leading" secondItem="1hh-eQ-a6X" secondAttribute="leadingMargin" id="3Tr-0v-NCb"/>
-                    <constraint firstItem="YZi-Tg-uIF" firstAttribute="top" secondItem="EDQ-0N-hfe" secondAttribute="top" id="9cW-v3-uus"/>
+                    <constraint firstItem="YZi-Tg-uIF" firstAttribute="top" secondItem="1hh-eQ-a6X" secondAttribute="top" constant="32" id="aIt-dn-5j1"/>
                     <constraint firstAttribute="trailingMargin" secondItem="YZi-Tg-uIF" secondAttribute="trailing" constant="15" id="bhF-3h-EZv"/>
+                    <constraint firstAttribute="bottom" secondItem="YZi-Tg-uIF" secondAttribute="bottom" constant="33" id="g4I-6X-JoG"/>
                     <constraint firstItem="YZi-Tg-uIF" firstAttribute="leading" secondItem="EDQ-0N-hfe" secondAttribute="trailing" constant="20" id="na8-hz-SD2"/>
                     <constraint firstItem="EDQ-0N-hfe" firstAttribute="top" secondItem="1hh-eQ-a6X" secondAttribute="topMargin" id="xcf-aL-sT6"/>
                 </constraints>
