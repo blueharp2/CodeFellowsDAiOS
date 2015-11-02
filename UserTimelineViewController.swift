@@ -58,12 +58,12 @@ class UserTimelineViewController:  UIViewController, UITableViewDelegate, UITabl
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userTimelines.count
     }
-    optional func numberOfSectionsInTableView(tableView: UITableView) -> Int{
+     func numberOfSectionsInTableView(tableView: UITableView) -> Int{
             return 2
         }
         
-    optional func tableView(tableView: UITableView,titleForHeaderInSection section: Int) -> String?{
-            
+     func tableView(tableView: UITableView,titleForHeaderInSection section: Int) -> String?{
+            return UserTimeline.screenName
         }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -73,13 +73,6 @@ class UserTimelineViewController:  UIViewController, UITableViewDelegate, UITabl
         
         return cell
     }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-    }
-
 
 }
 }
