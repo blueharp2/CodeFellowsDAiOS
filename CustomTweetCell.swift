@@ -24,8 +24,7 @@ class CustomTweetCell: UITableViewCell {
                 
                 if let image = user.image{
                     
-//                    self.imgView = image
-                    self.imgView.setBackgroundImage(image, forState: UIControlState.Normal)
+                    self.imgView.image = image
                     
                 } else {
                     if let url = NSURL(string: user.profileImage){
@@ -36,9 +35,7 @@ class CustomTweetCell: UITableViewCell {
                                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                                     let image = UIImage (data: imageData)
                                     
-//                                    self.imgView.image = image
-                                    
-                                    self.imgView.setBackgroundImage(image, forState: UIControlState.Normal)
+                                    self.imgView.image = image
                                     
                                     user.image = image
                                     
