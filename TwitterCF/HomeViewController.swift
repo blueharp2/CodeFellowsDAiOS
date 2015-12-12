@@ -15,8 +15,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var tableView: UITableView!
     
-    var tweets = [Tweet] ()
-    
+    var tweets = [Tweet] ()//
     class func identifier() -> String {
         return"HomeViewController"
     }
@@ -66,7 +65,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
-
+//
     func getTweets() {
         TwitterService.tweetsFromHomeTimeline {(error, tweets) -> () in
             if let error = error {

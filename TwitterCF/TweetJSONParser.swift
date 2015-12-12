@@ -38,7 +38,8 @@ class TweetJSONParser {
                             let tweet = Tweet(text : text, id : id)
                             if let name = user["name"] as? String, profileImage = user["profile_image_url"] as? String {
                                 tweet.user = User(userName : name , profileImage: profileImage)
-                                tweet.retweetStatus = retweetStatus                                }
+                                tweet.retweetStatus = retweetStatus
+                            }
                             tweets.append(tweet)  
                     }
                 }

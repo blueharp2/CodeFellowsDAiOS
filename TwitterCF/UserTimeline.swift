@@ -24,7 +24,5 @@ class UserTimeline {
         self.status = status
         self.text = text
     }
-    
-    
 }
 
