@@ -11,8 +11,9 @@ import UIKit
 class CustomTweetCell: UITableViewCell {
     //insert outlets here
     
-    @IBOutlet weak var imgView: UIButton!
-    
+
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var imgButton: UIButton!
     @IBOutlet weak var tweetTextLabel: UILabel!
     
     

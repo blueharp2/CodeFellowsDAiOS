@@ -15,35 +15,45 @@
                 <rect key="frame" x="0.0" y="0.0" width="462" height="86"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDQ-0N-hfe">
-                        <rect key="frame" x="8" y="8" width="75" height="75"/>
-                        <animations/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="75" id="P7m-m6-K2I"/>
-                            <constraint firstAttribute="height" constant="75" id="xWc-Ae-9jK"/>
-                        </constraints>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZi-Tg-uIF">
-                        <rect key="frame" x="103" y="32" width="336" height="21"/>
+                        <rect key="frame" x="91" y="32" width="348" height="21"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R2g-Oa-wdl">
+                        <rect key="frame" x="8" y="5" width="75" height="75"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="75" id="Ew6-sa-X4X"/>
+                            <constraint firstAttribute="width" constant="75" id="zsv-Tk-rR3"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="twf-fD-Kn7">
+                        <rect key="frame" x="8" y="3" width="75" height="75"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="75" id="Aig-oS-F90"/>
+                            <constraint firstAttribute="height" constant="75" id="Aw4-Fq-vXl"/>
+                        </constraints>
+                    </button>
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstItem="EDQ-0N-hfe" firstAttribute="leading" secondItem="1hh-eQ-a6X" secondAttribute="leadingMargin" id="3Tr-0v-NCb"/>
-                    <constraint firstItem="YZi-Tg-uIF" firstAttribute="top" secondItem="1hh-eQ-a6X" secondAttribute="top" constant="32" id="aIt-dn-5j1"/>
+                    <constraint firstItem="twf-fD-Kn7" firstAttribute="leading" secondItem="R2g-Oa-wdl" secondAttribute="trailing" constant="-75" id="1l6-nK-0lQ"/>
+                    <constraint firstItem="R2g-Oa-wdl" firstAttribute="centerY" secondItem="1hh-eQ-a6X" secondAttribute="centerY" id="4ZV-p0-jvL"/>
+                    <constraint firstItem="R2g-Oa-wdl" firstAttribute="leading" secondItem="1hh-eQ-a6X" secondAttribute="leading" constant="8" id="JGa-op-vQj"/>
+                    <constraint firstItem="R2g-Oa-wdl" firstAttribute="top" secondItem="twf-fD-Kn7" secondAttribute="bottom" constant="-73" id="KVM-9z-9c6"/>
                     <constraint firstAttribute="trailingMargin" secondItem="YZi-Tg-uIF" secondAttribute="trailing" constant="15" id="bhF-3h-EZv"/>
-                    <constraint firstAttribute="bottom" secondItem="YZi-Tg-uIF" secondAttribute="bottom" constant="33" id="g4I-6X-JoG"/>
-                    <constraint firstItem="YZi-Tg-uIF" firstAttribute="leading" secondItem="EDQ-0N-hfe" secondAttribute="trailing" constant="20" id="na8-hz-SD2"/>
-                    <constraint firstItem="EDQ-0N-hfe" firstAttribute="top" secondItem="1hh-eQ-a6X" secondAttribute="topMargin" id="xcf-aL-sT6"/>
+                    <constraint firstItem="YZi-Tg-uIF" firstAttribute="leading" secondItem="R2g-Oa-wdl" secondAttribute="trailing" constant="8" id="h6H-u9-nOV"/>
+                    <constraint firstItem="YZi-Tg-uIF" firstAttribute="centerY" secondItem="1hh-eQ-a6X" secondAttribute="centerY" id="hU8-bX-RGJ"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
             <connections>
-                <outlet property="imgView" destination="EDQ-0N-hfe" id="hnT-et-qT5"/>
+                <outlet property="imgButton" destination="twf-fD-Kn7" id="Iim-AW-6c2"/>
+                <outlet property="imgView" destination="R2g-Oa-wdl" id="kbk-4x-NnH"/>
                 <outlet property="tweetTextLabel" destination="YZi-Tg-uIF" id="5BZ-xT-VPe"/>
             </connections>
             <point key="canvasLocation" x="521" y="278.5"/>
