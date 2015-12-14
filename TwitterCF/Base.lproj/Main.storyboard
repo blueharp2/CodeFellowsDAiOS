@@ -77,6 +77,18 @@
                                     <constraint firstAttribute="height" constant="81" id="TY8-PM-tuL"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNd-ci-uwA">
+                                <rect key="frame" x="28" y="184" width="81" height="81"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="MVu-cw-6V8"/>
+                                    <constraint firstAttribute="width" constant="81" id="de2-79-Lzg"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="imgButton:" destination="6gg-od-DyB" eventType="touchUpInside" id="ayu-Ob-Zhz"/>
+                                    <segue destination="GYp-AZ-zrp" kind="show" id="AXu-LB-0Et"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -87,6 +99,8 @@
                             <constraint firstItem="8Sl-lm-SBz" firstAttribute="leading" secondItem="lFZ-dG-LjG" secondAttribute="leadingMargin" constant="8" id="ROD-XN-8lP"/>
                             <constraint firstItem="1AH-K0-fuk" firstAttribute="leading" secondItem="lFZ-dG-LjG" secondAttribute="leadingMargin" constant="8" id="a5D-T0-lkM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8Sl-lm-SBz" secondAttribute="trailing" constant="8" id="iev-dS-fgg"/>
+                            <constraint firstItem="WNd-ci-uwA" firstAttribute="top" secondItem="1AH-K0-fuk" secondAttribute="bottom" constant="-81" id="kzS-Cb-i10"/>
+                            <constraint firstItem="WNd-ci-uwA" firstAttribute="leading" secondItem="1AH-K0-fuk" secondAttribute="trailing" constant="-81" id="s1Z-7X-4sg"/>
                             <constraint firstItem="ZCj-Pq-V3u" firstAttribute="leading" secondItem="lFZ-dG-LjG" secondAttribute="leadingMargin" constant="8" id="vy6-B6-aTH"/>
                         </constraints>
                     </view>
@@ -94,7 +108,6 @@
                         <outlet property="imageView" destination="1AH-K0-fuk" id="snx-0P-IlM"/>
                         <outlet property="tweetLabel" destination="8Sl-lm-SBz" id="qmP-pi-x0x"/>
                         <outlet property="userNameLabel" destination="ZCj-Pq-V3u" id="sPM-LN-RHC"/>
-                        <segue destination="GYp-AZ-zrp" kind="show" identifier="segueToTimeline" id="Lo7-pv-k6A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kYQ-v0-4fa" userLabel="First Responder" sceneMemberID="firstResponder"/>

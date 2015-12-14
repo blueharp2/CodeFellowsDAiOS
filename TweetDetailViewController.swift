@@ -12,11 +12,13 @@ class TweetDetailViewController: UIViewController {
     
     // Outlets
     @IBOutlet weak var tweetLabel: UILabel!
-    
     @IBOutlet weak var userNameLabel: UILabel!
-    
     @IBOutlet weak var imageView: UIImageView!
-    
+  
+    @IBAction func imgButton(sender: UIButton) {
+       
+        
+    }
     
     
     // Class Properties
@@ -61,4 +63,21 @@ class TweetDetailViewController: UIViewController {
         self.tweetLabel.text = self.tweet.isRetweet ?
             self.tweet.rtText : self.tweet.text
     }
+
+
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == UserTimelineTableViewController.identifier(){
+            
+            let userTimeLineDetailViewController = segue.destinationViewController as! UserTimelineTableViewController
+        
+//            if let indexPath = self.tableView.indexPathForSelectedRow{
+//                let tweet = self.tweets[indexPath.row]
+//                let tweetDetailViewContorller = segue.destinationViewController as! TweetDetailViewController
+//                tweetDetailViewContorller.tweet = tweet
+//            }
+        }
+    }
 }
+    
+
